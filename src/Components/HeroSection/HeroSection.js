@@ -3,7 +3,7 @@ import GoogleFontLoader from 'react-google-font-loader';
 import { MdOutlineArrowRightAlt } from 'react-icons/md';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { FaGoogle } from "react-icons/fa6";
-
+import heroImage from '../../images/heroImage.png'
 
 
 
@@ -55,7 +55,7 @@ const HeroSection = () => {
                         </div>
                         <p className="mt-2  text-start mb-4 text-gray-400">Collaborate with your team within minutes</p>
 
-                        <div className="mt-6 md:w-4/6 w-full px-4 py-4 font-semibold rounded-md shadow  bg-gray-200 max-w-lg  ">
+                        <div className="mt-8 md:w-4/6 w-full px-4 py-4 font-semibold rounded-md shadow  bg-gray-200 max-w-lg  ">
                             <div className='flex justify-center items-center gap-x-8'>
                                 <div>
                                     <div className='flex justify-start items-start gap-x-2'>
@@ -80,8 +80,8 @@ const HeroSection = () => {
                     <div >
                         <img
                             className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-                            src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                            alt=""
+                            src={heroImage}
+                            alt="HeroImage"
                         />
                     </div>
 
