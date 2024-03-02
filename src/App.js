@@ -3,6 +3,7 @@ import FifthSection from './Components/FifthSection/FifthSection';
 import ForthSection from './Components/ForthSection/ForthSection';
 import Header from './Components/Header/Header';
 import HeroSection from './Components/HeroSection/HeroSection';
+import SixthSection from './Components/SixthSection/SixthSection';
 import ThirdSection from './Components/ThirdSection/ThirdSection';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <ThirdSection></ThirdSection>
       <ForthSection></ForthSection>
       <FifthSection></FifthSection>
+      <SixthSection></SixthSection>
     </div>
   );
 }

@@ -79,7 +79,7 @@ const HeroSection = () => {
 
                     <div >
                         <img
-                            className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
+                            className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded  md:h-96 lg:h-full"
                             src={heroImage}
                             alt="HeroImage"
                         />

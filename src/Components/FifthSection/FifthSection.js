@@ -14,7 +14,7 @@ import pic from '../../images/hybridwork.png'
 const FifthSection = () => {
     return (
         <div className='md:px-0 px-3 '>
-            <div className=" md:mt-16 lg:mt-10 mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-28 lg:py-20">
+            <div className=" md:mt-16 lg:mt-0 mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-28 lg:py-20">
                 <div className="grid gap-10 lg:grid-cols-2">
                     <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-sm">
                         <div className="max-w-xl mb-6">
@@ -41,7 +41,7 @@ const FifthSection = () => {
 
                     <div >
                         <img
-                            className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-full lg:h-full"
+                            className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded md:h-full lg:h-full"
                             src={pic}
                             alt="HeroImage"
                         />
