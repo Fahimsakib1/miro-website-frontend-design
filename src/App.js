@@ -1,4 +1,5 @@
 import './App.css';
+import EighthSection from './Components/EighthSection/EighthSection';
 import FifthSection from './Components/FifthSection/FifthSection';
 import ForthSection from './Components/ForthSection/ForthSection';
 import Header from './Components/Header/Header';
@@ -15,6 +16,7 @@ function App() {
       <ForthSection></ForthSection>
       <FifthSection></FifthSection>
       <SixthSection></SixthSection>
+      <EighthSection></EighthSection>
     </div>
   );
 }

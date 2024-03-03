@@ -13,7 +13,7 @@ import pic from '../../images/laptop.png'
 const SixthSection = () => {
     return (
         <div>
-            <div className='md:px-0 px-3 '>
+            <div className='md:px-0 px-3'>
                 <div className=" md:mt-16 lg:mt-0 mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-28 lg:py-20">
                     <div className="grid gap-8 lg:grid-cols-2">
 
