@@ -5,6 +5,13 @@ import image3 from '../../images/Volvo.png'
 import image4 from '../../images/deloitte.png'
 import image5 from '../../images/Okta.png'
 
+
+
+
+
+
+
+
 const ThirdSection = () => {
     return (
         <div className='md:mt-16 lg:mt-10 mt-10 mb-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-2 lg:py-20'>
