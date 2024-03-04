@@ -91,12 +91,12 @@ const Footer = () => {
                                 className="w-full h-auto"
                             />
                             <div className="w-full p-[36px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center  ">
-                                <h1 className="lg:mt-1 mt-3 lg:text-[23px] text-[18px] text-start text-black font-bold">Sign up to our newsletter</h1>
-                                <p className="lg:mt-[21px] mt-[14px] lg:text-[15px] text-[13px] text-start text-black">Receive the latest mobile security news, exclusive discounts & offers straight to your inbox!</p>
+                                <h1 className="lg:mt-1 mt-3 lg:text-[23px] text-[18px] text-start text-black font-bold   lg:ml-0 md:ml-0 sm:-ml-2 -ml-2">Sign up to our newsletter</h1>
+                                <p className="lg:mt-[21px] mt-[10px] lg:text-[15px] text-[13px] text-start text-black  lg:ml-0 md:ml-0 sm:-ml-2 -ml-2">Receive the latest mobile security news, exclusive discounts & offers straight to your inbox!</p>
                                 <div className='lg:mb-0 mb-4 lg:mt-[36px] mt-[16px] '>
                                     <fieldset className="w-full space-y-1 text-gray-100">
-                                        <div className="flex">
-                                            <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm  py-2 rounded-l-full bg-white text-gray-700 " />
+                                        <div className="flex ">
+                                            <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm  py-2 rounded-l-full bg-white text-gray-700       lg:ml-0 md:ml-0 sm:-ml-6 -ml-4      mx-auto" />
                                             <span className="text-white flex items-center px-5  sm:text-sm rounded-r-full  bg-[#02033B] cursor-pointer hover:bg-gray-950" title='Submit'>Submit</span>
                                         </div>
                                     </fieldset>
