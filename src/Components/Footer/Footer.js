@@ -31,17 +31,20 @@ const Footer = () => {
                                 className="mt-4 flex justify-start items-center gap-x-[36px]"
                             >
                                 <img
-                                    className="lg:mt-0 md:mt-3 mt-5  w-[36px] h-[36px]"
+                                    className="hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer hover:-translate-y-1 w-[36px] h-[36px]" 
+                                    title='Twitter'
                                     src={twitter}
                                     alt="TwitterImage"
                                 />
                                 <img
-                                    className="lg:mt-0 md:mt-3 mt-5  w-[36px] h-[36px]"
+                                    className="hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer hover:-translate-y-1 w-[36px] h-[36px]"
+                                    title='Facebook'
                                     src={facebook}
                                     alt="FacebookImage"
                                 />
                                 <img
-                                    className="lg:mt-0 md:mt-3 mt-5  w-[36px] h-[36px]"
+                                    className="hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer hover:-translate-y-1  w-[36px] h-[36px]"
+                                    title='YouTube'
                                     src={youtube}
                                     alt="YoutubeImage"
                                 />
@@ -94,7 +97,7 @@ const Footer = () => {
                                     <fieldset className="w-full space-y-1 text-gray-100">
                                         <div className="flex">
                                             <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm  py-2 rounded-l-full bg-white text-gray-700 " />
-                                            <span className="text-white flex items-center px-5 pointer-events-none sm:text-sm rounded-r-full  bg-[#02033B]">Submit</span>
+                                            <span className="text-white flex items-center px-5  sm:text-sm rounded-r-full  bg-[#02033B] cursor-pointer hover:bg-gray-950" title='Submit'>Submit</span>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -118,7 +121,7 @@ const Footer = () => {
                                 <fieldset className="w-full space-y-1 text-gray-100">
                                     <div className="flex">
                                         <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm py-2 rounded-l-full bg-white text-gray-700  " />
-                                        <span className="text-white flex items-center px-5 pointer-events-none sm:text-sm rounded-r-full  bg-[#02033B]">Submit</span>
+                                        <span className="text-white flex items-center px-5  sm:text-sm rounded-r-full  bg-[#02033B] hover:bg-gray-950 cursor-pointer" title='Submit'>Submit</span>
                                     </div>
                                 </fieldset>
                             </div>

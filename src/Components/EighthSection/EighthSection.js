@@ -68,7 +68,7 @@ const EighthSection = () => {
                         details.map((course, index) => (
                             <button
                                 key={index}
-                                className={`${selectedCourseIndex === index ? 'bg-[#F2F2F2]' : 'border-2 border-gray-100'} text-black rounded-full px-2 py-[11px] text-[12px] font-semibold`}
+                                className={`${selectedCourseIndex === index ? 'bg-[#F2F2F2]' : 'hover:bg-sky-100 border-2 border-gray-100'} text-black rounded-full px-2 py-[11px] text-[12px] font-semibold`}
                                 onClick={() => handleCourseClick(index)}
                             >
                                 {course.name}
@@ -91,7 +91,7 @@ const EighthSection = () => {
                             </div>
                             <div className='mt-[24px] flex justify-start items-center'>
                                 <div
-                                    className="flex justify-center items-center text-start gap-x-2 font-semibold  text-blue-500 "
+                                    className="flex justify-center items-center text-start gap-x-2 font-semibold  text-blue-500 hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer"
                                 >
                                     <p className=''>Learn more</p>
                                     <GoArrowRight className='mt-1'></GoArrowRight>

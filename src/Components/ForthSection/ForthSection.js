@@ -21,7 +21,7 @@ const ForthSection = () => {
                     </h2>
                 </div>
                 <div className="md:px-12 px-4 mx-auto grid gap-10 row-gap-5 mb-8 md:row-gap-16 lg:grid-cols-3 sm:grid-cols-2">
-                    <div className="duration-300 transform bg-white  ">
+                    <div className=" duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             <h6 className="text-start text-black text-lg mb-5 font-bold leading-5">Free forever</h6>
                             <p className="text-justify text-sm text-gray-500">
@@ -29,7 +29,7 @@ const ForthSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="duration-300 transform bg-white  ">
+                    <div className="duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             <h6 className="text-start text-black text-lg mb-5 font-bold leading-5">Easy integrations</h6>
                             <p className="text-justify text-sm text-gray-500">
@@ -37,7 +37,7 @@ const ForthSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="duration-300 transform bg-white  ">
+                    <div className="duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             <h6 className="text-start text-black text-lg mb-5 font-bold leading-5">Security first</h6>
                             <p className="text-justify text-sm text-gray-500">
@@ -46,7 +46,7 @@ const ForthSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" mt-10 inline-flex items-center justify-center h-[46px] px-10 font-medium text-white transition duration-200 rounded-full  bg-[#4262FF] hover:bg-blue-600 cursor-pointer">
+                <div className=" mt-10 inline-flex items-center justify-center h-[46px] px-10 font-medium text-white transition rounded-full  bg-[#4262FF] hover:bg-blue-600 cursor-pointer hover:scale-105 hover:ease-in duration-300 delay-150">
                     <div className='flex justify-center items-center gap-x-1'>
                         <p>Sign up free</p>
                         <MdOutlineArrowRightAlt className='md:mt-[6px] mt-1 text-white text-2xl'></MdOutlineArrowRightAlt>

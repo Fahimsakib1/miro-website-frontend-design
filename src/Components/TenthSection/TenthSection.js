@@ -44,7 +44,7 @@ const TenthSection = () => {
                 <h2 className="text-center mt-4  mb-6 font-sans md:text-[48px] font-bold  text-gray-900 text-3xl md:mx-auto">
                     Loved by the world's best teams
                 </h2>
-                <div className=" mt-6 inline-flex items-center justify-center h-[46px] px-6 font-medium text-[#4262FF] rounded-full border-2 border-[#4262FF]  cursor-pointer">
+                <div className=" mt-6 inline-flex items-center justify-center h-[46px] px-6 font-medium text-[#4262FF] rounded-full border-2 border-[#4262FF]  cursor-pointer   hover:scale-105 hover:ease-in duration-300 delay-150">
                     <div className='flex justify-center items-center gap-x-1'>
                         <p>See all customer stories</p>
                         <MdOutlineArrowRightAlt className='md:mt-[4px] mt-1 text-[#4262FF]'></MdOutlineArrowRightAlt>
@@ -52,7 +52,7 @@ const TenthSection = () => {
                 </div>
 
                 <div className="mt-[76px] md:px-12 px-4 mx-auto grid gap-x-10 gap-y-6 row-gap-5 mb-8 md:row-gap-16 lg:grid-cols-3 sm:grid-cols-2">
-                    <div className="duration-300 transform bg-white  ">
+                    <div className="duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             {/* <h6 style={{ fontFamily: 'Manrope, monospaced' }} className="font-sans text-start text-black text-4xl mb-5"><span className='font-bold '>vm</span>ware</h6> */}
                             <img
@@ -65,7 +65,7 @@ const TenthSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="duration-300 transform bg-white  ">
+                    <div className="duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             {/* <h6 className="text-start text-black text-4xl mb-5 font-bold ">DocuSign</h6> */}
                             <img
@@ -78,7 +78,7 @@ const TenthSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="duration-300 transform bg-white  ">
+                    <div className="duration-300 transform bg-white  hover:shadow-2xl rounded-lg hover:cursor-pointer">
                         <div className="h-full p-5  rounded-r shadow-sm">
                             {/* <h6 className="text-start text-black text-4xl mb-5 font-bold ">frog</h6> */}
                             <img
@@ -132,7 +132,7 @@ const TenthSection = () => {
 
 
                 <div className='lg:flex hidden mt-[40px] lg:justify-around justify-center items-center  md:gap-x-10 lg:gap-y-0 md:gap-y-16 gap-x-0 gap-y-5 lg:px-0 md:px-16 px-7    '>
-                    <div className=' flex justify-start   gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6'>
+                    <div className=' flex justify-start   gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6 hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer'>
                         <img
                             className="rounded-full w-[48px] h-[48px]"
                             src={people1}
@@ -143,7 +143,7 @@ const TenthSection = () => {
                             <h3 className='text-start text-[14px] text-gray-500'>Design Team Lead at VMware</h3>
                         </div>
                     </div>
-                    <div className='flex justify-start  gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6'>
+                    <div className='flex justify-start  gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6 hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer'>
                         <img
                             className="rounded-full w-[48px] h-[48px]"
                             src={people2}
@@ -154,7 +154,7 @@ const TenthSection = () => {
                             <h3 className='text-start text-[14px] text-gray-500'>Head of Design at DocuSign</h3>
                         </div>
                     </div>
-                    <div className='  flex justify-start  gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6'>
+                    <div className='  flex justify-start  gap-x-4 lg:gap-y-0 gap-y-5 lg:mb-0 mb-6 hover:scale-110 hover:ease-in duration-300 delay-150 cursor-pointer'>
                         <img
                             className="rounded-full w-[48px] h-[48px]"
                             src={people3}

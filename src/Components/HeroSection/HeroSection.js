@@ -4,6 +4,7 @@ import { MdOutlineArrowRightAlt } from 'react-icons/md';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { FaGoogle } from "react-icons/fa6";
 import heroImage from '../../images/heroImage.png'
+import GLogo from '../../images/G.png'
 
 
 
@@ -22,7 +23,7 @@ const HeroSection = () => {
                 weights: [400, 700],
             },
         ]}
-        subsets={['cyrillic-ext', 'greek']}
+        subsets={['cyrillic-ext', 'greek']} 
     />
 
 
@@ -33,7 +34,7 @@ const HeroSection = () => {
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-2 lg:py-20">
                 <div className="grid gap-4 lg:grid-cols-2">
                     <div className="lg:pr-0">
-                        <h5 className="text-black text-start mb-4 md:text-4xl text-3xl font-bold" style={{ fontFamily: 'Open Sans, monospaced' }}>
+                        <h5 className="text-black text-start mb-4 md:text-4xl text-3xl font-extrabold" style={{ fontFamily: 'Open Sans, monospaced' }}>
                             Take ideas from
                             <br />
                             better to best
@@ -55,7 +56,7 @@ const HeroSection = () => {
                         </div>
                         <p className="mt-2  text-start mb-4 text-gray-400">Collaborate with your team within minutes</p>
 
-                        <div className="mt-8 md:w-4/6 w-full px-4 py-4 font-semibold rounded-md shadow  bg-gray-200 max-w-lg  ">
+                        <div className="mt-8 lg:w-4/6 md:w-11/12 w-full px-4 py-4 font-semibold rounded-md shadow  bg-[#F5F5F7] max-w-lg  h-[70px]">
                             <div className='flex justify-center items-center gap-x-8'>
                                 <div>
                                     <div className='flex justify-start items-start gap-x-2'>
@@ -65,10 +66,14 @@ const HeroSection = () => {
                                         <BsStarFill className='md:text-xl text-lg text-orange-500'></BsStarFill>
                                         <BsStarHalf className='md:text-xl text-lg text-orange-500'></BsStarHalf>
                                     </div>
-                                    <p className='md:text-[14px] text-[12px] text-black text-start font-normal'>Based on 5149+ reviews:</p>
+                                    <p className='md:text-[13px] text-[12px] text-black text-start font-semibold'>Based on 5149+ reviews:</p>
                                 </div>
                                 <div className='flex justify-center items-center gap-x-3'>
-                                    <FaGoogle className='mr-1 md:text-[20px] text-[18px] font-bold text-black'></FaGoogle>
+                                    <img
+                                        className=" lg:w-[26px] lg:h-[26px] md:w-[22px] md:h-[22px] w-[26px] h-[22px] "
+                                        src={GLogo}
+                                        alt="LogoImage"
+                                    />
                                     <p className='md:text-[18px] text-[16px] font-bold text-black'>GetApp</p>
                                     <p className='md:text-[18px] text-[16px] font-bold text-black'>Capterra</p>
                                 </div>
@@ -79,7 +84,7 @@ const HeroSection = () => {
 
                     <div >
                         <img
-                            className="lg:mt-0 md:mt-3 mt-5  object-cover w-full h-80 rounded  md:h-96 lg:h-full"
+                            className="lg:mt-0 md:mt-10 mt-5  object-cover w-full h-80 rounded  md:h-96 lg:h-full"
                             src={heroImage}
                             alt="HeroImage"
                         />

@@ -30,9 +30,9 @@ const FifthSection = () => {
                         </div>
                         <div className='flex justify-start items-center'>
                             <div
-                                className="flex justify-center items-center text-start gap-x-2 font-semibold  text-blue-500 "
+                                className="flex justify-center items-center text-start gap-x-2 font-semibold  text-blue-500 hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer"
                             >
-                                <p className=' border-b-2 border-blue-500'>Learn more</p>
+                                <p className=' border-b-2 border-blue-500 '>Learn more</p>
                                 <GoArrowRight className='mt-1'></GoArrowRight>
                             </div>
                         </div>

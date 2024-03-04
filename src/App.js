@@ -6,9 +6,11 @@ import ForthSection from './Components/ForthSection/ForthSection';
 import Header from './Components/Header/Header';
 import HeroSection from './Components/HeroSection/HeroSection';
 import NinthSection from './Components/NinthSection/NinthSection';
+import SeventhSection from './Components/SeventhSection/SeventhSection';
 import SixthSection from './Components/SixthSection/SixthSection';
 import TenthSection from './Components/TenthSection/TenthSection';
 import ThirdSection from './Components/ThirdSection/ThirdSection';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <ForthSection></ForthSection>
       <FifthSection></FifthSection>
       <SixthSection></SixthSection>
+      <SeventhSection></SeventhSection>
       <EighthSection></EighthSection>
       <NinthSection></NinthSection>
       <TenthSection></TenthSection>
