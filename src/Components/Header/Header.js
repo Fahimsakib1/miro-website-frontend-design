@@ -600,7 +600,7 @@ const Header = () => {
                                                     <button
                                                         aria-label="Close Menu"
                                                         title="Close Menu"
-                                                        className="p-2 bg-gray-950 rounded-full -mt-2 mr-4 transition duration-200  focus:outline-none focus:shadow-outline"
+                                                        className="p-2 bg-gray-950 rounded-full lg:-mt-2 md:mt-3 -mt-2 lg:mr-4 md:mr-5 mr-3 transition duration-200  focus:outline-none focus:shadow-outline"
                                                         onClick={() => setIsMenuOpen(false)}
                                                     >
                                                         <svg className="md:w-8 w-6 text-white font-extrabold" viewBox="0 0 24 24">
