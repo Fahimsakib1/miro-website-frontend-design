@@ -4,11 +4,11 @@ import { MdOutlineArrowRightAlt } from 'react-icons/md';
 const ForthSection = () => {
     return (
         <div>
-            <div className="md:mt-24 lg:mt-10 mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div className=" md:mt-24 lg:mt-10 mt-10 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <div className=''>
-                        <div className='lg:-ml-20 md:ml-28 sm:ml-32 ml-24 -mt-12 absolute  w-3/4 mx-auto'>
-                            <p className="mb-10 rotate-12 inline-block px-6 py-[6px]  text-xs font-bold tracking-wider bg-yellow-400 text-black uppercase rounded-xl ">
+                        <div className='lg:-ml-20 md:ml-28 sm:ml-28 ml-20 -mt-12 absolute  w-3/4 mx-auto'>
+                            <p className="mb-10 rotate-12 inline-block px-6  py-[6px]  text-xs font-bold tracking-wider bg-yellow-400 text-black uppercase rounded-xl ">
                                 Your Idea Starts Here
                             </p>
                         </div>

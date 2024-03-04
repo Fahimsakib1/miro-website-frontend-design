@@ -196,7 +196,7 @@ const NinthSection = () => {
                         </div>
                         <div >
                             <img
-                                className="md:-ml-20 ml-0 lg:mt-0 md:mt-3 mt-5 object-cover w-full h-80 rounded md:h-full lg:h-full"
+                                className="lg:-ml-20 ml-0 lg:mt-0 md:mt-8 mt-8 object-cover w-full h-80 rounded md:h-full lg:h-full mx-auto"
                                 src={details[selectedCourseIndex].picture}
                                 alt="RelatedImage"
                             />

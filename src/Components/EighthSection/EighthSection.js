@@ -100,7 +100,7 @@ const EighthSection = () => {
                         </div>
                         <div >
                             <img
-                                className="md:-ml-10 ml-0 lg:mt-0 md:mt-3 mt-5 object-cover w-full h-80 rounded md:h-full lg:h-full"
+                                className="lg:-ml-10 ml-0 mx-auto lg:mt-0 md:mt-8 mt-8 object-cover w-full h-80 rounded md:h-full lg:h-full"
                                 src={details[selectedCourseIndex].picture}
                                 alt="RelatedImage"
                             />
