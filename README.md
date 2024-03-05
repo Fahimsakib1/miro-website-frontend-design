@@ -9,8 +9,8 @@ It has a section that shows the brands associated with the company with the huge
 ### React JS: 
 - React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.
 
-### Tailwind CSS and it's Component Library: 
-- Tailwind CSS was used in the website.
+### Tailwind CSS: 
+- Tailwind CSS was used in the website for styling.
 
 ### React Icons: 
 - React Icons is used to show the icons in the project 
