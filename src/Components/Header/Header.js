@@ -459,9 +459,9 @@ const Header = () => {
                                             onClick={handleDropDownMenuOpen1}
                                             tabIndex={0}
                                             role="button"
-                                            className={`cursor-pointer -ml-1  py-0 `}
+                                            className={`cursor-pointer `}
                                         >
-                                            <div className=" group flex justify-center items-center hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer " title='All Products'>
+                                            <div className=" group flex justify-center items-center hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer" title='All Products'>
                                                 <p className={` text-gray-700 text-[14px] normal-case font-semibold hover:text-blue-800   `}>Product</p>
                                                 <MdKeyboardArrowUp className={`mt-[2px] text-xl text-gray-700 group-hover:text-blue-800 ${!toggleArrowForDropDown1 ? 'rotate-180 ' : 'rotate-0'}`}></MdKeyboardArrowUp>
                                             </div>
@@ -471,11 +471,11 @@ const Header = () => {
                                             <>
                                                 <div
                                                     tabIndex={0}
-                                                    className={`mt-3 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
+                                                    className={`mt-5 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
                                                     <div className="card-body">
-                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer`}>Product 1</li>
-                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Product 2</li>
-                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Product 3</li>
+                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Product 1</li>
+                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Product 2</li>
+                                                        <li onClick={() => { setOpenDropDownHeader1(false); setToggleArrowForDropDown1(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Product 3</li>
                                                     </div>
                                                 </div>
                                             </>
@@ -499,11 +499,11 @@ const Header = () => {
                                             <>
                                                 <div
                                                     tabIndex={0}
-                                                    className={`mt-3 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
+                                                    className={`mt-5 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
                                                     <div className="card-body">
-                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer`}>Solution 1</li>
-                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Solution 2</li>
-                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Solution 3</li>
+                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Solution 1</li>
+                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Solution 2</li>
+                                                        <li onClick={() => { setOpenDropDownHeader2(false); setToggleArrowForDropDown2(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Solution 3</li>
                                                     </div>
                                                 </div>
                                             </>
@@ -526,11 +526,11 @@ const Header = () => {
                                             <>
                                                 <div
                                                     tabIndex={0}
-                                                    className={`mt-3 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
+                                                    className={`mt-5 z-[1] card card-compact dropdown-content w-52 bg-white shadow-2xl rounded-sm`} >
                                                     <div className="card-body">
-                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer`}>Resource 1</li>
-                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Resource 2</li>
-                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer`}>Resource 3</li>
+                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-2 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Resource 1</li>
+                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Resource 2</li>
+                                                        <li onClick={() => { setOpenDropDownHeader3(false); setToggleArrowForDropDown3(false) }} className={` text-black hover:bg-gray-300 -mt-1 py-2 px-3 text-md font-bold cursor-pointer rounded-sm`}>Resource 3</li>
                                                     </div>
                                                 </div>
                                             </>

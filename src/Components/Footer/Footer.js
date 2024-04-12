@@ -95,10 +95,18 @@ const Footer = () => {
                                 <p className="lg:mt-[21px] mt-[10px] lg:text-[15px] text-[13px] text-start text-black  lg:ml-0 md:ml-0 sm:-ml-2 -ml-2">Receive the latest mobile security news, exclusive discounts & offers straight to your inbox!</p>
                                 <div className='lg:mb-0 mb-4 lg:mt-[36px] mt-[16px] '>
                                     <fieldset className="w-full space-y-1 text-gray-100">
-                                        <div className="flex ">
+                                        <div className="lg:flex md:hidden hidden">
                                             <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm  py-2 rounded-l-full bg-white text-gray-700       lg:ml-0 md:ml-0 sm:-ml-6 -ml-4      mx-auto" />
                                             <span className="text-white flex items-center px-5  sm:text-sm rounded-r-full  bg-[#02033B] cursor-pointer hover:bg-gray-950" title='Submit'>Submit</span>
                                         </div>
+
+
+
+                                        <div className="md:hidden lg:hidden sm:flex flex   ">
+                                            <input type="text" placeholder="Email address" className="text-[15px] px-4 flex flex-1 text-start border sm:text-sm  py-3 rounded-l-full bg-white text-gray-700 mx-auto       input input-bordered input-xs w-full max-w-xs          " />
+                                            <span className="text-white flex items-center px-5  sm:text-sm rounded-r-full  bg-[#02033B] cursor-pointer hover:bg-gray-950     " title='Submit'>Submit</span>
+                                        </div>
+
                                     </fieldset>
                                 </div>
                             </div>
@@ -106,6 +114,8 @@ const Footer = () => {
 
                     </footer>
 
+                    
+                    
                     
                     {/* Only visible for medium devices. Hidden for Large and Small devices.  */}
                     <div className="lg:hidden md:block sm:hidden hidden mb-16 w-1/2 relative mx-auto">
