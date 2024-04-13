@@ -1,6 +1,9 @@
 const fs = require('fs');
 const cheerio = require('cheerio');
 
+
+
+
 function findImagesWithoutAlt(htmlContent) {
     const $ = cheerio.load(htmlContent);
     const imgTags = $('img');
@@ -49,9 +52,9 @@ fs.readFile('../Components/ThirdSection/ThirdSection.js', 'utf8', (err, data) =>
     });
 
     if (totalUndefinedAltCount === 0 && totalEmptyAltCount === 0) {
-        console.log("Total number of image tags that does not have alt attributes: 0");
-        console.log("Total number of image tags with empty alt attributes: 0");
-        console.log("Total number of image tags that are issue free: 0");
+        console.log("Total number of image tags that does not have alt attributes:", 0);
+        console.log("Total number of image tags with empty alt attributes:", 0);
+        console.log("Total number of image tags that are issue free:", 0);
     } else {
         console.log("Total number of image tags that does not have alt attributes:", totalUndefinedAltCount);
         console.log("Total number of image tags with empty alt attributes:", totalEmptyAltCount);

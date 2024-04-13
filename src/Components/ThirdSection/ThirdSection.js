@@ -30,7 +30,7 @@ const ThirdSection = () => {
                     <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4}  alt='aa'/>
                 </div>
                 <div>
-                    <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-40 lg:h-24 md:h-20 h-20' src={image5} />
+                    <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-40 lg:h-24 md:h-20 h-20' src={image5} alt=''/>
                 </div>
             </div>
         </div>
