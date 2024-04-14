@@ -4,22 +4,27 @@ const cheerio = require('cheerio');
 
 
 function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
-    
-    const $ = cheerio.load(htmlContent);
 
+    const $ = cheerio.load(htmlContent);
 
     const buttonTags = $('button');
     const anchorTags = $('a');
 
     let emptyButtons = [];
+    let meaningLessTextInButtons = [];
     let emptyAnchors = [];
 
 
+    const altRegexButton = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
+    
     // Code for checking the buttons and anchor tags that are empty. Means no text in the button and anchor tags
     buttonTags.each(function () {
         const buttonText = $(this).text().trim();
         if (!buttonText) {
             emptyButtons.push($(this).toString());
+        }
+        if (altRegexButton.test(buttonText.trim())) {
+            meaningLessTextInButtons.push($(this).toString());
         }
     });
 
@@ -30,12 +35,17 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
         }
     });
 
-    if (emptyButtons.length === 0 && emptyAnchors.length === 0) {
+    if (emptyButtons.length === 0 && emptyAnchors.length === 0 && meaningLessTextInButtons === 0) {
         console.log("There is no empty button and no anchor tag that contains no text in the code.");
     } else {
         console.log('\n')
         console.log("Total empty buttons found:", emptyButtons.length);
         emptyButtons.map(singleButton => {
+            console.log(singleButton);
+        });
+        console.log('\n')
+        console.log("Total meaning less texts in buttons found:", meaningLessTextInButtons.length);
+        meaningLessTextInButtons.map(singleButton => {
             console.log(singleButton);
         });
         console.log('\n')
@@ -143,6 +153,10 @@ function findImagesWithoutAlt(htmlContent) {
     let undefinedAltCount = 0;
     let emptyAltCount = 0;
     let issueLessImageTagCount = 0;
+    let meaningLessTextInAltCount = 0;
+
+    const altRegex = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
+
     imgTags.each(function () {
         console.log('\n')
         const altAttribute = $(this).attr('alt');
@@ -154,12 +168,16 @@ function findImagesWithoutAlt(htmlContent) {
             emptyAltCount++;
             console.log("Empty Alt attribute in image tag found in: \n", $(this).toString(), '\n');
         }
+        else if (altRegex.test(altAttribute.trim())) {
+            meaningLessTextInAltCount++;
+            console.log("Alt attribute contains special characters in image tag found in: \n", $(this).toString(), '\n');
+        }
         else {
             issueLessImageTagCount++;
             console.log("Issue less image tag found in: \n", $(this).toString(), '\n');
         }
     });
-    return { undefinedAltCount, emptyAltCount, issueLessImageTagCount };
+    return { undefinedAltCount, emptyAltCount, issueLessImageTagCount, meaningLessTextInAltCount };
 }
 
 
@@ -172,7 +190,7 @@ fs.readFile('../Components/PracticeForAccessibilityChecking/PracticeForAccessibi
         return;
     }
 
-    
+
     // *************** coder for showing issues with alt attributes of image tags ***************
 
     // Extract HTML content from JSX
@@ -180,20 +198,24 @@ fs.readFile('../Components/PracticeForAccessibilityChecking/PracticeForAccessibi
     let totalUndefinedAltCount = 0;
     let totalEmptyAltCount = 0;
     let totalIssueLessImageTagCount = 0;
+    let totalMeaningLessTextInAltCount = 0;
     htmlContent.forEach((content) => {
-        const { undefinedAltCount, emptyAltCount, issueLessImageTagCount } = findImagesWithoutAlt(content);
+        const { undefinedAltCount, emptyAltCount, issueLessImageTagCount, meaningLessTextInAltCount } = findImagesWithoutAlt(content);
         totalUndefinedAltCount += undefinedAltCount;
         totalEmptyAltCount += emptyAltCount;
         totalIssueLessImageTagCount += issueLessImageTagCount;
+        totalMeaningLessTextInAltCount += meaningLessTextInAltCount;
     });
-    if (totalUndefinedAltCount === 0 && totalEmptyAltCount === 0) {
+    if (totalUndefinedAltCount === 0 && totalEmptyAltCount === 0 && totalIssueLessImageTagCount === 0 && totalMeaningLessTextInAltCount === 0) {
         console.log("Total number of image tags that do not have alt attributes:", 0);
         console.log("Total number of image tags with empty alt attributes:", 0);
         console.log("Total number of image tags that are issue free:", 0);
+        console.log("Total number of meaning less text in alt attributes:", 0);
     } else {
         console.log("Total number of image tags that do not have alt attributes:", totalUndefinedAltCount);
         console.log("Total number of image tags with empty alt attributes:", totalEmptyAltCount);
         console.log("Total number of image tags that are issue free:", totalIssueLessImageTagCount);
+        console.log("Total number of meaning less text in alt attributes:", totalMeaningLessTextInAltCount);
     }
 
     // call the function for showing issues of buttons, anchor tags, form label 
