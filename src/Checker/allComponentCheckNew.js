@@ -58,8 +58,7 @@ function processFile(filePath) {
 
 
 
-
-
+            // Print the total count of each issues with button and anchor tags
             if (emptyButtons.length === 0 && emptyAnchors.length === 0 && meaningLessTextInButtons === 0 && meaningLessTextInAnchors === 0) {
                 console.log("There is no empty button and no anchor tag that contains no text in the code.");
             } else {
@@ -81,6 +80,7 @@ function processFile(filePath) {
                     console.log(singleAnchor);
                 });
             }
+
 
 
         }
@@ -154,6 +154,90 @@ function findImagesWithoutAlt(htmlContent) {
             meaningLessTextInAnchors.push($(this).toString());
         }
     });
+
+
+
+
+    // Code for checking the form labels that are empty. Means no text in the form label 
+    const forms = $('form');
+    let totalForms = forms.length;
+    console.log('\n')
+    console.log("Total forms found after checking:", totalForms);
+    forms.each(function (index) {
+        const form = $(this);
+        const formLabels = form.find('label');
+        let emptyLabels = [];
+        formLabels.each(function () {
+            const labelText = $(this).text().trim();
+            if (!labelText) {
+                emptyLabels.push($(this).toString());
+            }
+        });
+        console.log('\n')
+        console.log("************** Form " + (index + 1) + "  **************");
+        if (emptyLabels.length === 0) {
+            console.log("No empty labels found in this form.");
+        } else {
+            console.log("Total number of empty labels in this form found:", emptyLabels.length);
+            emptyLabels.map(singleLabel => {
+                console.log(singleLabel);
+            });
+        }
+    });
+
+
+
+
+
+
+
+
+    // Code for checking the multiple form labels.
+    let inputLabels = {}; // Object to store input labels and associated form labels
+    forms.each(function (index) {
+        const form = $(this);
+        const formLabels = form.find('label');
+        const formInputs = form.find('input, select, textarea, option, fieldset');
+
+        // Iterate through each form label
+        formLabels.each(function () {
+            const labelText = $(this).text().trim();
+            if (!labelText) {
+                // If label is empty, add it to the emptyLabels array
+                const inputId = $(this).attr('for');
+                if (inputId) {
+                    // If input ID is present
+                    if (!inputLabels[inputId]) {
+                        // If input label is encountered for the first time
+                        inputLabels[inputId] = {
+                            count: 1,
+                            forms: [index + 1]
+                        };
+                    } else {
+                        // If input label is already encountered
+                        inputLabels[inputId].count++;
+                        if (!inputLabels[inputId].forms.includes(index + 1)) {
+                            inputLabels[inputId].forms.push(index + 1);
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+
+    // console the results
+    console.log('\n')
+    console.log("Total forms found:", totalForms);
+    Object.keys(inputLabels).forEach(inputId => {
+        const labelInfo = inputLabels[inputId];
+        if (labelInfo.count > 1) {
+            console.log(`Input label with ID "${inputId}" has multiple form labels associated with form ${labelInfo.forms.join(', ')}`);
+        }
+    });
+
+
+
 
     // return { undefinedAltCount, emptyAltCount, issueLessImageTagCount, meaningLessTextInAltCount };
     return { missingAltImages, emptyAltImages, specialCharAltImages, issueLessImageTags, emptyButtons, emptyAnchors, meaningLessTextInAnchors, meaningLessTextInButtons }
