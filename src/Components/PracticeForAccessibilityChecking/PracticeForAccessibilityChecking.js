@@ -163,6 +163,37 @@ const PracticeForAccessibilityChecking = () => {
 
 
 
+
+
+
+
+
+
+                <div>
+                    <img
+                        className="lg:-ml-10 ml-0 mx-auto lg:mt-0 md:mt-8 mt-8 object-cover w-full h-80 rounded md:h-full lg:h-full"
+                        src={image4}
+                        alt=" "
+                    />
+                </div>
+
+                <div>
+                    <button>$#^%$#*&</button>
+                    <button> </button>
+                    <button>Hello</button>
+                </div>
+
+                <div>
+                    <a href="www.facebook.com"> </a>
+                    <a href=" "></a>
+                    <a href="www.facebook.com">%^$#@</a>
+                </div>
+
+
+
+
+
+
             </div>
 
 

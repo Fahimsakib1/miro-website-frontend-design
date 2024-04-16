@@ -11,11 +11,12 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
     const anchorTags = $('a');
 
     let emptyButtons = [];
-    let meaningLessTextInButtons = [];
     let emptyAnchors = [];
-
+    let meaningLessTextInButtons = [];
+    let meaningLessTextInAnchors = [];
 
     const altRegexButton = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
+    const altRegexAnchor = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
     
     // Code for checking the buttons and anchor tags that are empty. Means no text in the button and anchor tags
     buttonTags.each(function () {
@@ -33,9 +34,12 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
         if (!anchorText) {
             emptyAnchors.push($(this).toString());
         }
+        if (altRegexAnchor.test(anchorText.trim())) {
+            meaningLessTextInAnchors.push($(this).toString());
+        }
     });
 
-    if (emptyButtons.length === 0 && emptyAnchors.length === 0 && meaningLessTextInButtons === 0) {
+    if (emptyButtons.length === 0 && emptyAnchors.length === 0 && meaningLessTextInButtons === 0 && meaningLessTextInAnchors === 0) {
         console.log("There is no empty button and no anchor tag that contains no text in the code.");
     } else {
         console.log('\n')
@@ -51,6 +55,11 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
         console.log('\n')
         console.log("Total number of anchor tags with no text found:", emptyAnchors.length);
         emptyAnchors.map(singleAnchor => {
+            console.log(singleAnchor);
+        });
+        console.log('\n')
+        console.log("Total meaning less texts in anchor tag found:", meaningLessTextInAnchors.length);
+        meaningLessTextInAnchors.map(singleAnchor => {
             console.log(singleAnchor);
         });
     }

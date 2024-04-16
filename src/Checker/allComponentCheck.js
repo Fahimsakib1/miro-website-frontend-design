@@ -2,16 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
+
 // Function to recursively traverse through directories
 function traverseDirectory(dirPath) {
     const files = fs.readdirSync(dirPath);
     files.forEach(file => {
         const filePath = path.join(dirPath, file);
         if (fs.statSync(filePath).isDirectory()) {
-            // If it's a directory, recursively call traverseDirectory
             traverseDirectory(filePath);
         } else {
-            // If it's a file, process it
             processFile(filePath);
         }
     });
@@ -19,7 +18,6 @@ function traverseDirectory(dirPath) {
 
 // Function to process each file
 function processFile(filePath) {
-    // Read the file content
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             console.error("Error reading file:", err);
@@ -28,7 +26,6 @@ function processFile(filePath) {
         // Extract HTML content from JSX or HTML files
         const htmlContent = data.match(/<div[^>]*>(.*?)<\/div>/gs);
         if (htmlContent) {
-            // Check for missing alt attributes in image tags
             const missingAltImages = findImagesWithoutAlt(htmlContent);
             if (missingAltImages.length > 0) {
                 console.log('\n');
@@ -44,13 +41,18 @@ function processFile(filePath) {
     });
 }
 
+
+
+
+
+
+
+
 // Function to find images without alt attributes
 function findImagesWithoutAlt(htmlContent) {
     const $ = cheerio.load(htmlContent.join('')); // Join HTML content to form a single string
     const imgTags = $('img');
-
     let missingAltImages = [];
-
     imgTags.each(function () {
         const altAttribute = $(this).attr('alt');
         if (!altAttribute || altAttribute.trim() === '') {

@@ -98,7 +98,7 @@ const EighthSection = () => {
                                 </div>
                             </div>
                         </div>
-                        <div >
+                        <div>
                             <img
                                 className="lg:-ml-10 ml-0 mx-auto lg:mt-0 md:mt-8 mt-8 object-cover w-full h-80 rounded md:h-full lg:h-full"
                                 src={details[selectedCourseIndex].picture}
@@ -107,8 +107,6 @@ const EighthSection = () => {
                         </div>
                     </div>
                 </div>
-
-
 
 
             </div>
