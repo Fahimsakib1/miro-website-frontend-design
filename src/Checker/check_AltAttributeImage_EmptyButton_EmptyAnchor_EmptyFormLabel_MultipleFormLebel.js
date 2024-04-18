@@ -15,12 +15,19 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
     let meaningLessTextInButtons = [];
     let meaningLessTextInAnchors = [];
 
+
+
+    let buttonCount = 0;
+    let anchorCount = 0;
+
+
     const altRegexButton = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
     const altRegexAnchor = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
-    
+
     // Code for checking the buttons and anchor tags that are empty. Means no text in the button and anchor tags
     buttonTags.each(function () {
         const buttonText = $(this).text().trim();
+        // console.log("Button: ", buttonText);
         if (!buttonText) {
             emptyButtons.push($(this).toString());
         }
@@ -31,6 +38,7 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
 
     anchorTags.each(function () {
         const anchorText = $(this).text().trim();
+        // console.log("Anchor: ", anchorText);
         if (!anchorText) {
             emptyAnchors.push($(this).toString());
         }
@@ -38,6 +46,20 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
             meaningLessTextInAnchors.push($(this).toString());
         }
     });
+
+
+    // Process button tags
+    buttonTags.each(function () {
+        buttonCount++;
+    });
+
+    // Process Anchor tags
+    anchorTags.each(function () {
+        anchorCount++;
+    });
+
+
+
 
     if (emptyButtons.length === 0 && emptyAnchors.length === 0 && meaningLessTextInButtons === 0 && meaningLessTextInAnchors === 0) {
         console.log("There is no empty button and no anchor tag that contains no text in the code.");
@@ -63,6 +85,31 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
             console.log(singleAnchor);
         });
     }
+
+
+
+    // Calculate performance percentage of Buttons
+    const totalButtons = buttonCount;
+    const totalButtonsWithIssues = emptyButtons.length + meaningLessTextInButtons.length;
+    const totalIssueFreeButtons = buttonCount - totalButtonsWithIssues;
+    const performancePercentageButtons = ((totalIssueFreeButtons / totalButtons) * 100).toFixed(2);
+    console.log("Total Buttons Found: ", buttonCount);
+    console.log("Total", buttonCount + " Buttons found and among them ", totalButtonsWithIssues + " Buttons have issues");
+    console.log("Buttons Performance percentage:", performancePercentageButtons + "%");
+
+
+
+
+
+    // Calculate performance percentage of Anchors
+    const totalAnchors = anchorCount;
+    const totalAnchorsWithIssues = emptyAnchors.length + meaningLessTextInAnchors.length;
+    const totalIssueFreeAnchors = anchorCount - totalAnchorsWithIssues;
+    const performancePercentageAnchors = ((totalIssueFreeAnchors / totalAnchors) * 100).toFixed(2);
+    console.log("Total Anchors Found: ", anchorCount);
+    console.log("Total", anchorCount + " Anchors found and among them ", totalAnchorsWithIssues + " Anchors have issues");
+    console.log("Anchors Performance percentage:", performancePercentageAnchors + "%");
+
 
 
 
@@ -95,10 +142,6 @@ function findEmptyButtonsAndEmptyAnchorLink(htmlContent) {
             });
         }
     });
-
-
-
-
 
 
 
@@ -221,10 +264,26 @@ fs.readFile('../Components/PracticeForAccessibilityChecking/PracticeForAccessibi
         console.log("Total number of image tags that are issue free:", 0);
         console.log("Total number of meaning less text in alt attributes:", 0);
     } else {
+        // Calculate performance percentage of Images
+        const totalImages = totalUndefinedAltCount + totalEmptyAltCount + totalIssueLessImageTagCount + totalMeaningLessTextInAltCount;
+        const issueFreeImages = totalIssueLessImageTagCount;
+        const totalIssues = totalImages - issueFreeImages;
+
+        let performancePercentageImages;
+        if (totalImages > 0) {
+            performancePercentageImages = ((issueFreeImages / totalImages) * 100).toFixed(2) + '%';
+        } else {
+            performancePercentageImages = "Can't Calculate Performance as there is no Image";
+        }
+        
+        console.log("Total Images Found: ", totalImages);
         console.log("Total number of image tags that do not have alt attributes:", totalUndefinedAltCount);
         console.log("Total number of image tags with empty alt attributes:", totalEmptyAltCount);
         console.log("Total number of image tags that are issue free:", totalIssueLessImageTagCount);
         console.log("Total number of meaning less text in alt attributes:", totalMeaningLessTextInAltCount);
+        console.log('\n');
+        console.log("Total", totalImages + " Images found and among them ", totalIssues + " Images have issues");
+        console.log("Image Performance percentage:", performancePercentageImages);
     }
 
     // call the function for showing issues of buttons, anchor tags, form label 

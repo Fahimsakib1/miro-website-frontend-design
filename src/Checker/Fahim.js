@@ -28,73 +28,62 @@ function processFile(filePath) {
         const htmlContent = data.match(/<div[^>]*>(.*?)<\/div>/gs);
         if (htmlContent) {
 
-            const { missingAltImages, emptyAltImages, specialCharAltImages, issueLessImageTags, emptyButtons, emptyAnchors, meaningLessTextInAnchors, meaningLessTextInButtons, imageCount, buttonCount, anchorCount, issueFreeButtons, issueFreeAnchors, emptyHrefInAnchors, invalidHrefAnchors } = findImagesWithoutAlt(htmlContent);
+            const { missingAltImages, emptyAltImages, specialCharAltImages, issueLessImageTags, emptyButtons, emptyAnchors, meaningLessTextInAnchors, meaningLessTextInButtons, buttonCount, anchorCount, issueFreeButtons } = findImagesWithoutAlt(htmlContent);
 
 
 
             // Print images related to each issue type
             console.log('\n');
-            console.log(`############## Checked File Name: ${filePath} ############## `);
-
-            console.log('\n');
-            console.log('*********************** Image Summary ***********************');
+            console.log(`Checked File Name: ${filePath}`);
 
             console.log("Missing Alt attribute in image tag found: ", missingAltImages.length);
             missingAltImages?.length > 0 && missingAltImages.forEach(imgTag => console.log(imgTag));
 
-            console.log('\n');
             console.log("Empty Alt attribute in image tag found: ", emptyAltImages.length);
             emptyAltImages?.length > 0 && emptyAltImages.forEach(imgTag => console.log(imgTag));
 
-            console.log('\n');
             console.log("Alt attribute contains special characters in image tag found: ", specialCharAltImages.length);
             specialCharAltImages?.length > 0 && specialCharAltImages.forEach(imgTag => console.log(imgTag));
 
-            console.log('\n');
             console.log("Issue less image tag found: ", issueLessImageTags.length);
             issueLessImageTags?.length > 0 && issueLessImageTags.forEach(imgTag => console.log(imgTag));
 
 
 
             // Calculate performance percentage of Images
-            const totalImages = imageCount;
-            // const totalImages = missingAltImages.length + emptyAltImages.length + specialCharAltImages.length + issueLessImageTags.length;
+            const totalImages = missingAltImages.length + emptyAltImages.length + specialCharAltImages.length + issueLessImageTags.length;
             const issueFreeImages = issueLessImageTags.length;
             const totalIssues = totalImages - issueFreeImages;
-            // const performancePercentageImages = ((issueFreeImages / totalImages) * 100).toFixed(2);
-            let performancePercentageImages;
-            if (totalImages > 0) {
-                performancePercentageImages = ((issueLessImageTags.length/totalImages) * 100).toFixed(2) + '%';
-            } else {
-                performancePercentageImages = "Can't Calculate Performance as there is no Image";
-            }
+            const performancePercentageImages = ((issueFreeImages / totalImages) * 100).toFixed(2);
+
             // Print the total Image count of each issue type
             console.log('\n');
-            console.log("Total Images Found: ", imageCount);
             console.log("Total missing alt attributes: ", missingAltImages.length);
             console.log("Total empty alt attributes: ", emptyAltImages.length);
             console.log("Total alt attributes with special characters: ", specialCharAltImages.length);
             console.log("Total issue less image tags: ", issueLessImageTags.length);
             console.log("Total", totalImages + " Images found and among them ", totalIssues + " Images have issues");
-            console.log("Image Performance percentage:", performancePercentageImages);
-            
-            
-            
-            if (emptyButtons.length === 0 && meaningLessTextInButtons === 0) {
+            console.log("Image Performance percentage:", performancePercentageImages + "%");
+
+
+
+
+
+
+
+
+            if (emptyButtons.length === 0 &&  meaningLessTextInButtons === 0 ) {
                 console.log("There is no empty button and no anchor tag that contains no text in the code.");
             } else {
-                console.log('\n');
-                console.log('*********************** Button Summary ***********************');
+                console.log('\n')
                 console.log("Total empty buttons found:", emptyButtons.length);
                 emptyButtons.map(singleButton => {
                     console.log(singleButton);
                 });
-                console.log('\n')
                 console.log("Total meaning less texts in buttons found:", meaningLessTextInButtons.length);
                 meaningLessTextInButtons.map(singleButton => {
                     console.log(singleButton);
                 });
-                console.log('\n')
                 console.log("Total Issue Free Buttons:", issueFreeButtons.length);
                 issueFreeButtons.map(singleButton => {
                     console.log(singleButton);
@@ -103,19 +92,13 @@ function processFile(filePath) {
 
             // Calculate performance percentage of Buttons
             const totalButtons = buttonCount;
-            // const totalButtonsWithIssues = emptyButtons.length + meaningLessTextInButtons.length;
-            const totalButtonsWithIssues = totalButtons - issueFreeButtons.length;
-            let performancePercentageButtons;
-            if (totalButtons > 0) {
-                performancePercentageButtons = ((issueFreeButtons.length/totalButtons) * 100).toFixed(2) + '%';
-            } else {
-                performancePercentageButtons = "Can't Calculate Performance as there is no button";
-            }
-            console.log('\n');
+            const totalButtonsWithIssues = emptyButtons.length + meaningLessTextInButtons.length;
+            const totalIssueFreeButtons = buttonCount - totalButtonsWithIssues;
+            const performancePercentageButtons = ((totalIssueFreeButtons / totalButtons) * 100).toFixed(2);
             console.log("Total Buttons Found: ", buttonCount);
             console.log("Total Issue Free Buttons: ", issueFreeButtons.length);
             console.log("Total", buttonCount + " Buttons found and among them ", totalButtonsWithIssues + " Buttons have issues");
-            console.log("Buttons Performance percentage:", performancePercentageButtons);
+            console.log("Buttons Performance percentage:", performancePercentageButtons + "%");
 
 
 
@@ -125,29 +108,12 @@ function processFile(filePath) {
                 console.log("There is no empty button and no anchor tag that contains no text in the code.");
             } else {
                 console.log('\n')
-                console.log('*********************** Anchor Summary ***********************');
-                console.log("Total number of anchor tags with no text:", emptyAnchors.length);
+                console.log("Total number of anchor tags with no text found:", emptyAnchors.length);
                 emptyAnchors.map(singleAnchor => {
                     console.log(singleAnchor);
                 });
-                console.log('\n')
-                console.log("Total meaning less texts in anchor tag:", meaningLessTextInAnchors.length);
+                console.log("Total meaning less texts in anchor tag found:", meaningLessTextInAnchors.length);
                 meaningLessTextInAnchors.map(singleAnchor => {
-                    console.log(singleAnchor);
-                });
-                console.log('\n')
-                console.log("Total Anchors with No href or empty href:", emptyHrefInAnchors.length);
-                emptyHrefInAnchors.map(singleAnchor => {
-                    console.log(singleAnchor);
-                });
-                console.log('\n')
-                console.log("Total Anchors with Invalid href:", invalidHrefAnchors.length);
-                invalidHrefAnchors.map(singleAnchor => {
-                    console.log(singleAnchor);
-                });
-                console.log('\n')
-                console.log("Total Issue Free Anchor Tags:", issueFreeAnchors.length);
-                issueFreeAnchors.map(singleAnchor => {
                     console.log(singleAnchor);
                 });
             }
@@ -155,18 +121,12 @@ function processFile(filePath) {
 
             // Calculate performance percentage of Anchors
             const totalAnchors = anchorCount;
-            const totalAnchorsWithIssues = anchorCount - issueFreeAnchors.length;
-            let performancePercentageAnchors;
-            if (totalAnchors > 0) {
-                performancePercentageAnchors = ((issueFreeAnchors.length/totalAnchors)*100).toFixed(2) + '%';
-            } else {
-                performancePercentageAnchors = "Can't Calculate Performance as there is no anchor tag";
-            }
-            console.log('\n');
+            const totalAnchorsWithIssues = emptyAnchors.length + meaningLessTextInAnchors.length;
+            const totalIssueFreeAnchors = anchorCount - totalAnchorsWithIssues;
+            const performancePercentageAnchors = ((totalIssueFreeAnchors / totalAnchors) * 100).toFixed(2);
             console.log("Total Anchors Found: ", anchorCount);
-            console.log("Total Issue Free Anchors: ", issueFreeAnchors.length);
             console.log("Total", anchorCount + " Anchors found and among them ", totalAnchorsWithIssues + " Anchors have issues");
-            console.log("Anchors Performance percentage:", performancePercentageAnchors);
+            console.log("Anchors Performance percentage:", performancePercentageAnchors + "%");
 
 
 
@@ -177,25 +137,19 @@ function processFile(filePath) {
 
 
 
-
-
-
 function findImagesWithoutAlt(htmlContent) {
 
     const $ = cheerio.load(htmlContent.join('')); // Join HTML content to form a single string
     const imgTags = $('img');
 
-    let imageCount = 0;
     let missingAltImages = [];
     let emptyAltImages = [];
     let specialCharAltImages = [];
     let issueLessImageTags = [];
 
-
     const altRegex = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
 
     imgTags.each(function () {
-        imageCount++;
         const altAttribute = $(this).attr('alt');
         if (altAttribute === undefined) {
             missingAltImages.push($(this).toString());
@@ -218,16 +172,11 @@ function findImagesWithoutAlt(htmlContent) {
     let emptyButtons = [];
     let buttonCount = 0;
     let meaningLessTextInButtons = [];
-    let issueFreeButtons = []
+    let issueFreeButtons = [];
 
-
-    let anchorCount = 0;
     let emptyAnchors = [];
     let meaningLessTextInAnchors = [];
-    let noHrefInAnchors = [];
-    let emptyHrefInAnchors = [];
-    let invalidHrefAnchors = [];
-    let issueFreeAnchors = [];
+    let anchorCount = 0;
 
 
     const altRegexButton = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
@@ -254,82 +203,17 @@ function findImagesWithoutAlt(htmlContent) {
     });
 
 
-    // anchorTags.each(function () {
-    //     anchorCount++;
-    //     const anchorText = $(this).text().trim();
-    //     if (!anchorText) {
-    //         emptyAnchors.push($(this).toString());
-    //     }
-    //     if (altRegexAnchor.test(anchorText.trim())) {
-    //         meaningLessTextInAnchors.push($(this).toString());
-    //     }
-    //     if (!anchorText || altRegexAnchor.test(anchorText)) {
-    //         // If anchor text is empty or contains meaningless regex text, skip
-    //         return;
-    //     }
-    //     issueFreeAnchors.push($(this).toString());
-    // });
-
-
-
-
-
-
-
-    // anchorTags.each(function () {
-    //     anchorCount++;
-    //     const $anchor = $(this);
-    //     const anchorText = $anchor.text().trim();
-    //     const hrefAttribute = $anchor.attr('href');
-
-    //     if (!anchorText) {
-    //         emptyAnchors.push($anchor.toString());
-    //     }
-    //     if (altRegexAnchor.test(anchorText.trim())) {
-    //         meaningLessTextInAnchors.push($anchor.toString());
-    //     }
-    //     if (!anchorText || altRegexAnchor.test(anchorText)) {
-    //         return;
-    //     }
-    //     if (!hrefAttribute) {
-    //         hrefMissingInAnchors.push($anchor.toString());
-    //     }
-    //     if (hrefAttribute.trim() === '') {
-    //         emptyHrefInAnchors.push($anchor.toString());
-    //     }
-    //     issueFreeAnchors.push($anchor.toString());
-    // });
-
-
-
-
     anchorTags.each(function () {
         anchorCount++;
-        const $anchor = $(this);
-        const anchorText = $anchor.text().trim();
-        const hrefAttribute = $anchor.attr('href');
-        const specialCharRegex = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
-
+        const anchorText = $(this).text().trim();
         if (!anchorText) {
-            emptyAnchors.push($anchor.toString());
-            return;
+            emptyAnchors.push($(this).toString());
         }
         if (altRegexAnchor.test(anchorText.trim())) {
-            meaningLessTextInAnchors.push($anchor.toString());
-
+            meaningLessTextInAnchors.push($(this).toString());
         }
-        if (!hrefAttribute || hrefAttribute.trim() === '') {
-            emptyHrefInAnchors.push($anchor.toString());
-            return;
-        }
-        // Check if href attribute exists and starts with a valid protocol or www., and anchor text doesn't contain only special characters
-        if ((!hrefAttribute || !/^https?:\/\/|^www\./i.test(hrefAttribute) || specialCharRegex.test(hrefAttribute)) || specialCharRegex.test(anchorText)) {
-            invalidHrefAnchors.push($anchor.toString());
-            return;
-        }
-        // If all checks pass, the anchor is issue-free
-        issueFreeAnchors.push($anchor.toString());
     });
+
 
 
 
@@ -339,6 +223,7 @@ function findImagesWithoutAlt(htmlContent) {
     const forms = $('form');
     let totalForms = forms.length;
     console.log('\n')
+    console.log("Total forms found after checking:", totalForms);
     forms.each(function (index) {
         const form = $(this);
         const formLabels = form.find('label');
@@ -360,6 +245,12 @@ function findImagesWithoutAlt(htmlContent) {
             });
         }
     });
+
+
+
+
+
+
 
 
     // Code for checking the multiple form labels.
@@ -398,7 +289,7 @@ function findImagesWithoutAlt(htmlContent) {
 
     // console the results
     console.log('\n')
-    console.log("Total forms found:", totalForms.length);
+    console.log("Total forms found:", totalForms);
     Object.keys(inputLabels).forEach(inputId => {
         const labelInfo = inputLabels[inputId];
         if (labelInfo.count > 1) {
@@ -407,7 +298,10 @@ function findImagesWithoutAlt(htmlContent) {
     });
 
 
-    return { missingAltImages, emptyAltImages, specialCharAltImages, issueLessImageTags, emptyButtons, emptyAnchors, meaningLessTextInAnchors, meaningLessTextInButtons, imageCount, buttonCount, anchorCount, issueFreeButtons, issueFreeAnchors, emptyHrefInAnchors, invalidHrefAnchors }
+
+
+    // return { undefinedAltCount, emptyAltCount, issueLessImageTagCount, meaningLessTextInAltCount };
+    return { missingAltImages, emptyAltImages, specialCharAltImages, issueLessImageTags, emptyButtons, emptyAnchors, meaningLessTextInAnchors, meaningLessTextInButtons, buttonCount, anchorCount, issueFreeButtons }
 }
 
 

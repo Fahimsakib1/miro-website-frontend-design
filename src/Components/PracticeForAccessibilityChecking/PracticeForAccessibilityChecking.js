@@ -27,7 +27,7 @@ const PracticeForAccessibilityChecking = () => {
                         <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-40 lg:h-12 md:h-16 h-12 lg:mt-5 md:mt-1 mt-0 md:mb-0 mb-6' src={image2} alt='bbb' />
                     </div>
                     <div>
-                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-20' src={image3}  />
+                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-20' src={image3} />
                     </div>
                     <div>
                         <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} />
@@ -41,6 +41,21 @@ const PracticeForAccessibilityChecking = () => {
                     <div>
                         <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-40 lg:h-24 md:h-20 h-20' src={image5} alt='Tree' />
                     </div>
+                    <div>
+                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} />
+                    </div>
+                    <div>
+                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} />
+                    </div>
+                    <div>
+                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} />
+                    </div>
+                    <div>
+                        <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} alt='' />
+                        <div>
+                            <img className='hover:scale-105 hover:ease-in duration-300 delay-150 cursor-pointer mx-auto lg:w-40 md:w-64 w-48 lg:h-24 md:h-20 h-24' src={image4} alt="^%$^*" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -52,9 +67,12 @@ const PracticeForAccessibilityChecking = () => {
                 <button>First Button</button>
                 <button>Second Button</button>
                 <button>Third Button</button>
+                <button>Forth Button</button>
+                <button>Fifth Button</button>
                 <button></button>
                 <button>$&*%&^%</button>
                 <button>#@$^</button>
+                <button>&$^&*&%</button>
                 <button className='text-black px-4 py-3 bg-blue-700 rounded-sm'></button>
                 <button className='text-black px-4 py-3 bg-blue-700 rounded-sm'></button>
             </div>
@@ -63,12 +81,36 @@ const PracticeForAccessibilityChecking = () => {
 
 
             {/* anchors added for accessibility checking */}
-            <a href='www.youtube.com'>B</a>
-            <a href='www.youtube.com'>a</a>
-            <a href='www.youtube.com'>Z</a>
-            <a href='www.youtube.com'>D</a>
-            <a href='www.youtube.com'></a>
-            <a href='www.facebook.com'>   </a>
+            <div>
+                <a href='www.youtube.com'>B</a>
+                <a href='www.youtube.com'>a</a>
+                <a href='www.youtube.com'>Z</a>
+                <a href='www.youtube.com'> </a>
+                <a href='www.youtube.com'></a>
+                <a href='www.youtube.com'>Youtube</a>
+                <a href='www.google.com'>Google</a>
+                <a href='www.twitter.com'>Twitter</a>
+                <a href='www.instagram.com'>Instagram</a>
+                <a href='www.instagram.com'>$%*^%#%%</a>
+                <a href='www.instagram.com'> </a>
+                <a href='www.aaaa.com'>Website</a>
+                <a href='www.aaaa.com'>&^^^^</a>
+                <a href='$$^^^*(('></a>
+                <a href='&^$#^^^*(('></a>
+                <a href=''>Sa</a>
+                <a href=' '>Fa</a>
+                <a>AAA</a>
+                <a> </a>
+                <a> rvgrththtytyj</a>
+                <a> </a>
+                <a>ergthyjujk </a>
+                <a> </a>
+                <a> </a>
+                <a>yhtyjtyjyuju</a>
+                <a> </a>
+            </div>
+
+
 
 
 
@@ -76,8 +118,9 @@ const PracticeForAccessibilityChecking = () => {
 
 
             {/* forms added for accessibility checking */}
+
+            {/* Form to check the empty form label */}
             <div>
-                {/* Form to check the empty form label */}
                 <form>
                     <div>
                         <label for="name"></label>
@@ -96,9 +139,11 @@ const PracticeForAccessibilityChecking = () => {
                         <input id="mobile" type="text" autocomplete="mobile" />
                     </div>
                 </form>
+            </div>
 
 
-                {/* Form to check the empty form label */}
+            {/* Form to check the empty form label */}
+            <div>
                 <form>
                     <div>
                         <label for="Country"></label>
@@ -113,9 +158,11 @@ const PracticeForAccessibilityChecking = () => {
                         <input id="Population" type="number" autocomplete="Population" />
                     </div>
                 </form>
+            </div>
 
 
-                {/* Form to check the multiple empty form label */}
+            {/* Form to check the multiple empty form label */}
+            <div>
                 <form>
                     <div>
                         <label for="Man"></label>
@@ -132,10 +179,12 @@ const PracticeForAccessibilityChecking = () => {
                         <input type="number" autocomplete="Money" />
                     </div>
                 </form>
+            </div>
 
 
 
-                {/* Form to check the multiple empty form label with a span tag inside the form label*/}
+            {/* Form to check the multiple empty form label with a span tag inside the form label*/}
+            <div>
                 <form>
                     <div>
                         <label for="Man1"></label>
@@ -158,42 +207,6 @@ const PracticeForAccessibilityChecking = () => {
                         <input type="text" autocomplete="School" />
                     </div>
                 </form>
-
-
-
-
-
-
-
-
-
-
-
-                <div>
-                    <img
-                        className="lg:-ml-10 ml-0 mx-auto lg:mt-0 md:mt-8 mt-8 object-cover w-full h-80 rounded md:h-full lg:h-full"
-                        src={image4}
-                        alt=" "
-                    />
-                </div>
-
-                <div>
-                    <button>$#^%$#*&</button>
-                    <button> </button>
-                    <button>Hello</button>
-                </div>
-
-                <div>
-                    <a href="www.facebook.com"> </a>
-                    <a href=" "></a>
-                    <a href="www.facebook.com">%^$#@</a>
-                </div>
-
-
-
-
-
-
             </div>
 
 
