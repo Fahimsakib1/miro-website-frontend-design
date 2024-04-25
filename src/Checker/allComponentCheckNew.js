@@ -64,7 +64,7 @@ function processFile(filePath) {
             // const performancePercentageImages = ((issueFreeImages / totalImages) * 100).toFixed(2);
             let performancePercentageImages;
             if (totalImages > 0) {
-                performancePercentageImages = ((issueLessImageTags.length/totalImages) * 100).toFixed(2) + '%';
+                performancePercentageImages = ((issueLessImageTags.length / totalImages) * 100).toFixed(2) + '%';
             } else {
                 performancePercentageImages = "Can't Calculate Performance as there is no Image";
             }
@@ -77,15 +77,26 @@ function processFile(filePath) {
             console.log("Total issue less image tags: ", issueLessImageTags.length);
             console.log("Total", totalImages + " Images found and among them ", totalIssues + " Images have issues");
             console.log("Image Performance percentage:", performancePercentageImages);
-            
-            
-            
+
+
+
+            console.log('\n');
+            const nullOrEmptyTextOrMissingAltImage = 'https://webaim.org/standards/wcag/checklist#sc1.1.1'
+            const howToSolveThisIssue = 'https://www.w3.org/WAI/WCAG20/quickref/20160105/#text-equiv-all'
+            if (missingAltImages.length > 0 || emptyAltImages.length > 0 || specialCharAltImages.length) {
+                console.log('---------- WCAG Guidelines For Image Alt Attribute------------')
+                console.log('Guidelines for null or empty or suspicious alt text: ', nullOrEmptyTextOrMissingAltImage)
+                console.log('Guidelines for how to Meet 1.1.1 (Non-text Content): ', howToSolveThisIssue)
+            }
+
+
+
             if (emptyButtons.length === 0 && meaningLessTextInButtons === 0) {
                 console.log("There is no empty button and no anchor tag that contains no text in the code.");
             } else {
                 console.log('\n');
                 console.log('*********************** Button Summary ***********************');
-                console.log("Total empty buttons found:", emptyButtons.length);
+                console.log("Total empty buttons or has no value text found:", emptyButtons.length);
                 emptyButtons.map(singleButton => {
                     console.log(singleButton);
                 });
@@ -107,7 +118,7 @@ function processFile(filePath) {
             const totalButtonsWithIssues = totalButtons - issueFreeButtons.length;
             let performancePercentageButtons;
             if (totalButtons > 0) {
-                performancePercentageButtons = ((issueFreeButtons.length/totalButtons) * 100).toFixed(2) + '%';
+                performancePercentageButtons = ((issueFreeButtons.length / totalButtons) * 100).toFixed(2) + '%';
             } else {
                 performancePercentageButtons = "Can't Calculate Performance as there is no button";
             }
@@ -117,6 +128,20 @@ function processFile(filePath) {
             console.log("Total", buttonCount + " Buttons found and among them ", totalButtonsWithIssues + " Buttons have issues");
             console.log("Buttons Performance percentage:", performancePercentageButtons);
 
+
+
+
+            
+            console.log('\n');
+            const emptyButton1 = 'https://webaim.org/standards/wcag/checklist#sc2.4.4'
+            const emptyButton2 = 'https://webaim.org/standards/wcag/checklist#sc1.1.1'
+            const moreGuidelineButton = 'https://www.w3.org/WAI/perspective-videos/controls/'
+            if (emptyButtons.length > 0 || meaningLessTextInButtons.length > 0) {
+                console.log('---------- WCAG Guidelines For Button Text ------------')
+                console.log('Guideline for empty text in button:', emptyButton1);
+                console.log('Guideline 2 for button:', emptyButton2);
+                console.log('More Guidelines for button:', moreGuidelineButton);
+            }
 
 
 
@@ -158,7 +183,7 @@ function processFile(filePath) {
             const totalAnchorsWithIssues = anchorCount - issueFreeAnchors.length;
             let performancePercentageAnchors;
             if (totalAnchors > 0) {
-                performancePercentageAnchors = ((issueFreeAnchors.length/totalAnchors)*100).toFixed(2) + '%';
+                performancePercentageAnchors = ((issueFreeAnchors.length / totalAnchors) * 100).toFixed(2) + '%';
             } else {
                 performancePercentageAnchors = "Can't Calculate Performance as there is no anchor tag";
             }
@@ -169,13 +194,21 @@ function processFile(filePath) {
             console.log("Anchors Performance percentage:", performancePercentageAnchors);
 
 
+            console.log('\n');
+            const anchorLinkGuideline = 'https://webaim.org/standards/wcag/checklist#sc2.4.4'
+            const moreGuidelineLink = 'https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html'
+            if(emptyAnchors.length > 0 || emptyHrefInAnchors.length > 0  || invalidHrefAnchors.length > 0 || meaningLessTextInAnchors.length > 0){
+                console.log('---------- WCAG Guidelines For link ------------')
+                console.log('Guideline for empty text in Link:', anchorLinkGuideline);
+                console.log('More Guidelines for Link:', moreGuidelineLink);
+            }
+            
+
+
 
         }
     });
 }
-
-
-
 
 
 
@@ -273,9 +306,6 @@ function findImagesWithoutAlt(htmlContent) {
 
 
 
-
-
-
     // anchorTags.each(function () {
     //     anchorCount++;
     //     const $anchor = $(this);
@@ -303,33 +333,98 @@ function findImagesWithoutAlt(htmlContent) {
 
 
 
+
+
+
+
+    // anchorTags.each(function () {
+    //     anchorCount++;
+    //     const $anchor = $(this);
+    //     const anchorText = $anchor.text().trim();
+    //     const hrefAttribute = $anchor.attr('href');
+    //     const specialCharRegex = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
+    //     if (!anchorText) {
+    //         emptyAnchors.push($anchor.toString());
+    //         return;
+    //     }
+    //     if (altRegexAnchor.test(anchorText.trim())) {
+    //         meaningLessTextInAnchors.push($anchor.toString());
+    //         return;
+    //     }
+    //     if (!hrefAttribute || hrefAttribute.trim() === '') {
+    //         emptyHrefInAnchors.push($anchor.toString());
+    //         return;
+    //     }
+    //     if ((!hrefAttribute || !/^https?:\/\/|^www\./i.test(hrefAttribute) || specialCharRegex.test(hrefAttribute)) || specialCharRegex.test(anchorText)) {
+    //         invalidHrefAnchors.push($anchor.toString());
+    //         return;
+    //     }
+    //     issueFreeAnchors.push($anchor.toString());
+    // });
+
+
+
+
+
+
+
+
+
+
+
+ //anchor tag er moddhe # thake check korbe and jodi anchor tag er moddhe image tag thake tahole check korbe with proper alt attribute
     anchorTags.each(function () {
         anchorCount++;
         const $anchor = $(this);
         const anchorText = $anchor.text().trim();
         const hrefAttribute = $anchor.attr('href');
         const specialCharRegex = /^[!@#$%^&*()_+{}\[\]:;<>,.?/~\\\-]+$/;
-
+        const containsImage = $anchor.find('img').length > 0;
+        if (hrefAttribute === '#') {
+            if (!anchorText) {
+                emptyAnchors.push($anchor.toString());
+                return;
+            }
+            if (anchorText && specialCharRegex.test(anchorText)) {
+                invalidHrefAnchors.push($anchor.toString());
+                return;
+            }
+            issueFreeAnchors.push($anchor.toString());
+            return;
+        }
+        if (containsImage) {
+            const $imgTag = $anchor.find('img');
+            const imgSrc = $imgTag.attr('src');
+            const imgAlt = $imgTag.attr('alt');
+            if (imgSrc && imgSrc.trim() !== '' && imgAlt && imgAlt.trim() !== '') {
+                issueFreeAnchors.push($anchor.toString());
+                return;
+            }
+        }
         if (!anchorText) {
             emptyAnchors.push($anchor.toString());
             return;
         }
         if (altRegexAnchor.test(anchorText.trim())) {
             meaningLessTextInAnchors.push($anchor.toString());
-
+            return;
         }
         if (!hrefAttribute || hrefAttribute.trim() === '') {
             emptyHrefInAnchors.push($anchor.toString());
             return;
         }
-        // Check if href attribute exists and starts with a valid protocol or www., and anchor text doesn't contain only special characters
         if ((!hrefAttribute || !/^https?:\/\/|^www\./i.test(hrefAttribute) || specialCharRegex.test(hrefAttribute)) || specialCharRegex.test(anchorText)) {
             invalidHrefAnchors.push($anchor.toString());
             return;
         }
-        // If all checks pass, the anchor is issue-free
         issueFreeAnchors.push($anchor.toString());
     });
+
+
+
+
+
+
 
 
 
